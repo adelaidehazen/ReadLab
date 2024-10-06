@@ -42,3 +42,16 @@ squeue -u hazen039
 `````
 this prints out the status of what is running
 
+##Logging back in on 10.6.24 to work through the lab
+
+vim commands: 
+`````
+#save and exit
+:wq 
+#insert mode
+i
+#command mode
+[esc]
+'''''
+
+Today I made it through the lab until the last step where I got the error "samtools: error while loading shared libraries: libcrypto.so.10: cannot open shared object file: No such file or directory"
