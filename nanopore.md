@@ -42,7 +42,7 @@ squeue -u hazen039
 `````
 this prints out the status of what is running
 
-##Logging back in on 10.6.24 to work through the lab
+## Logging back in on 10.6.24 to work through the lab
 
 vim commands: 
 `````
