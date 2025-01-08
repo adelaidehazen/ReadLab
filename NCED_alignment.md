@@ -47,8 +47,8 @@ docker run -ti -v `pwd`:`pwd` -w `pwd` quay.io/biocontainers/qcat:1.0.0--py_0 qc
 ```
 This ran, but it separated a file containing 2 barcodes into 5 different barcodes and then most of the reads were lumped into "none"
 Copilot gave me this pointer: 
+```
 qcat -f <fastq_file> -b <output_folder> -b <barcode1> -b <barcode2> ...
-```[_{{{CITATION{{{_1{GitHub - nanoporetech/qcat: qcat is a Python command-line tool for ...](https://github.com/nanoporetech/qcat)
 ```
 so I am going to run this
 ```
