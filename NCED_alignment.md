@@ -7,6 +7,7 @@ curl -s https://get.sdkman.io | bash
 ```
 at this point I had to open a new terminal to continue 
 https://www.youtube.com/watch?v=GfWkLo5vzME 
+https://github.com/boulderrinnlab/CLASS_2023/blob/master/CLASSES/03_Nextflow/01_installing_nextflow.Rmd
 ```
 sdk install java 17.0.10-tem
 java -version
