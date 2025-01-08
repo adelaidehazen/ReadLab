@@ -6,6 +6,7 @@ I got nextflow to work by first installing java and then installing nextflow whe
 curl -s https://get.sdkman.io | bash
 ```
 at this point I had to open a new terminal to continue 
+https://www.youtube.com/watch?v=GfWkLo5vzME 
 ```
 sdk install java 17.0.10-tem
 java -version
@@ -13,7 +14,7 @@ cd nced_align
 curl -s https://get.nextflow.io | bash
 sudo nano /etc/paths.d/nextflow
 /Users/adelaide/desktop/installs/
-https://www.youtube.com/watch?v=GfWkLo5vzME 
+
 ```
 
 Now I am continuing with the workflow
