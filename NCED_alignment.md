@@ -61,7 +61,7 @@ docker run -ti -v `pwd`:`pwd` -w `pwd` quay.io/biocontainers/qcat:1.0.0--py_0 qc
 This did the exact same thing but put it into a folder named after one of my DNA sequences. 
 Copilot is telling me I need to include the barcode kit name for the specific sequences like this: (replacing the kit name with the specific kit we used for barcodes)
 ```
-docker run -ti -v $(pwd):$(pwd) -w $(pwd) quay.io/biocontainers/qcat:1.0.0--py_0 qcat -f barcoded/bc1/38BT8D_5_BC1_2.fastq --kit SQK-RBK004 --output barcoded/bc1/output
+docker run -ti -v $(pwd):$(pwd) -w $(pwd) quay.io/biocontainers/qcat:1.0.0--py_0 qcat -f barcoded/bc1/38BT8D_5_BC1_2.fastq --kit PBC096 --output barcoded/bc1/output
 ```
 
 
