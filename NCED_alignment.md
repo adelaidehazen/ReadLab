@@ -13,6 +13,7 @@ cd nced_align
 curl -s https://get.nextflow.io | bash
 sudo nano /etc/paths.d/nextflow
 /Users/adelaide/desktop/installs/
+https://www.youtube.com/watch?v=GfWkLo5vzME 
 ```
 
 Now I am continuing with the workflow
