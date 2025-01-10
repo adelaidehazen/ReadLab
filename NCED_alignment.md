@@ -63,6 +63,11 @@ Copilot is telling me I need to include the barcode kit name for the specific se
 ```
 docker run -ti -v $(pwd):$(pwd) -w $(pwd) quay.io/biocontainers/qcat:1.0.0--py_0 qcat -f barcoded/bc1/38BT8D_5_BC1_2.fastq --kit PBC096 --output barcoded/bc1/output
 ```
+Turns out, the barcodes we used are not exactly as the kit is, but there seems to be an easy fix according to copilot. I will make a custom barcode file: a txt file with each line as a specific barcode. 
+```
+docker run -ti -v `pwd`:`pwd` -w `pwd` quay.io/biocontainers/qcat:1.0.0--py_0 qcat -f 38BT8D_5_BC1_2.fastq -b barcodes --output output
+```
+
 ## 5B and 5D Alignment
 
 To do this, I will first create a new fasta file which is a concatenation of the two copies of the NCED promoter. Then I will run the original pipeline using the new concatenated pipeline. the B genome is the first sequence and the D genome is after
