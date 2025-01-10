@@ -30,7 +30,7 @@ nextflow run epi2me-labs/wf-alignment \
 ```
 I am storing all of the outputs in seperate folders named "BARCODE_output"
 
-
+## Trying to seperate out barcodes
 Now I am going to try the barcoded samples and see what happens
 
 ```
@@ -63,7 +63,23 @@ Copilot is telling me I need to include the barcode kit name for the specific se
 ```
 docker run -ti -v $(pwd):$(pwd) -w $(pwd) quay.io/biocontainers/qcat:1.0.0--py_0 qcat -f barcoded/bc1/38BT8D_5_BC1_2.fastq --kit PBC096 --output barcoded/bc1/output
 ```
+## 5B and 5D Alignment
 
+To do this, I will first create a new fasta file which is a concatenation of the two copies of the NCED promoter. Then I will run the original pipeline using the new concatenated pipeline. the B genome is the first sequence and the D genome is after
 
+```
+nextflow run epi2me-labs/wf-alignment \
+	--fastq 'fastq/38BT8D_1_BC1.fastq' \
+	--references 'reference/NCED_5Dand5B_Promoter.fa' \
+	-profile standard
+```
+When I ran this, my reads seemed to be much more accurately mapped and there was a way higher 
+I am going to run just the 5D promoter next to see what happens
+```
+nextflow run epi2me-labs/wf-alignment \
+	--fastq 'fastq/38BT8D_1_BC1.fastq' \
+	--references 'reference/NCED_5D_Promoter.fa' \
+	-profile standard
+```
 
 
