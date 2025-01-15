@@ -105,11 +105,10 @@ ssh hazen039@mangi.msi.umn.edu
 mkdir basecalled
 module load samtools/1.14
 module load minimap2/2.17
-minimap2 NCED_5Dand5B_Promoter.fa  * 38BT8D_1_BC1.fastq -ax map-ont > BC1.sam
-samtools view -bS BC1.sam > BC1.bam
-samtools sort BC1.bam -o BC1_sorted.bam
+minimap2 NCED_5Dand5B_Promoter.fa  * 38BT8D_3_BC3.fastq -ax map-ont > BC3samtools view -bS BC4.sam > BC4.bam.sam
+samtools view -bS BC4.sam > BC4.bam
 module load samtools
-samtools view BC1.sam -f 4 > BC1_unmapped.txt
+samtools view BC4.sam -f 4 > BC4_unmapped.txt
 
 ```
 This worked! Turns out, reads are mapping to the 3B chromosome...
