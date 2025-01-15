@@ -114,6 +114,68 @@ samtools view BC4.sam -f 4 > BC4_unmapped.txt
 This worked! Turns out, reads are mapping to the 3B chromosome...
 Now I am going to repeat this for all the barcodes to see if they are all doing the same thing 
 
+## Trying to Separate Barcodes more ...
 
+Using: https://github.com/nanoporetech/dorado/blob/release-v0.9/documentation/CustomBarcodes.md 
 
+```
+name = "custom_barcode"
 
+kit = "BC"
+
+ 
+
+mask1_front = ""
+
+mask1_rear = ""
+
+mask2_front = ""
+
+mask2_rear = ""
+
+ 
+
+# Barcode sequences
+
+barcode1_pattern = "BC%02i"
+
+barcode2_pattern = "BC%02i"
+
+first_index = 1
+
+last_index = 96
+
+rear_only_barcodes = true
+
+ 
+
+## Scoring options
+
+[scoring]
+
+max_barcode_penalty = 11
+
+barcode_end_proximity = 75
+
+min_barcode_penalty_dist = 3
+
+min_separation_only_dist = 6
+
+flank_left_pad =5
+
+flank_right_pad = 10
+
+front_barcode_window = 175
+
+rear_barcode_window = 175
+
+midstrand_flank_score = 0.95
+
+```
+
+I am going to run this: 
+```
+dorado demux --barcode-arrangement arrangement.toml --barcode-sequences MY_BC.fastq --emit-fastq --emit-summary -o ~/output1 BC1_2_3_4.fastq
+```
+
+Didn't work. I am going to try to modify my arrangement and barcode files soon to fix the issue. 
