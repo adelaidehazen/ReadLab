@@ -87,4 +87,34 @@ nextflow run epi2me-labs/wf-alignment \
 	-profile standard
 ```
 
+## Mapping Unmapped Reads, Using Andy's Github Script: 
+
+First I used FileZilla to add the Fastq files to be mapped, and the .fa file for the NCED promoter regions. Then I ran all these lines: 
+```
+ssh hazen039@mangi.msi.umn.edu
+
+#!/bin/bash -l
+#SBATCH -p v100                                             
+#SBATCH --gres=gpu:v100:1
+#SBATCH --time=1:00:00
+#SBATCH --ntasks=5
+#SBATCH --mem=40g
+#SBATCH --tmp=32g
+#SBATCH --job-name=Basecall_class
+
+mkdir basecalled
+module load samtools/1.14
+module load minimap2/2.17
+minimap2 NCED_5Dand5B_Promoter.fa  * 38BT8D_1_BC1.fastq -ax map-ont > BC1.sam
+samtools view -bS BC1.sam > BC1.bam
+samtools sort BC1.bam -o BC1_sorted.bam
+module load samtools
+samtools view BC1.sam -f 4 > BC1_unmapped.txt
+
+```
+This worked! Turns out, reads are mapping to the 3B chromosome...
+Now I am going to repeat this for all the barcodes to see if they are all doing the same thing 
+
+
+
 
