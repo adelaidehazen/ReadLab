@@ -175,7 +175,22 @@ midstrand_flank_score = 0.95
 
 I am going to run this: 
 ```
-dorado demux --barcode-arrangement arrangement.toml --barcode-sequences MY_BC.fastq --emit-fastq --emit-summary -o ~/output1 BC1_2_3_4.fastq
+dorado demux --barcode-arrangement arrangement.toml --barcode-sequences MY_BC.fastq --no-trim --emit-fastq --emit-summary -o ~/output1 BC1_2_3_4.fastq
 ```
 
-Didn't work. I am going to try to modify my arrangement and barcode files soon to fix the issue. 
+Didn't work. I am going to try to modify my arrangement and barcode files soon to fix the issue. I fought with this for hours. Shifting gears and trying something completely different
+
+```
+./barcode_split_trim.pl \
+  --id NCED_Align \
+  --barcode barcode.list \
+  --list \
+  --outdir output \
+  BC1_2_3_4.fastq
+```
+that didnt work. next: 
+```
+  barcode_split_trim.py --id NCEDAlign --barcode barcode.list --list BC1_2_3_4.fastq
+```
+Okay, for this to work I need to get pip onto my computer, which i will do after a meeting. 
+
